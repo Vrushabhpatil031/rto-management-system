@@ -1,0 +1,128 @@
+{% extends 'rto_index.html' %}
+{% load static %}
+{% block body %}
+
+<div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                    <div class="card-header">
+                        <h5>Driving Licence Request Status</h5>
+                    </div>
+                    <div class="card-body table-border-style">
+                        <div class="table-responsive">
+                            <table id="example" class="table table-bordered table-striped">
+                  <tr>
+                   <h3 style="color:blue"><center <th>User Details: </th><center<td>(Driving Licence No: {{data.drivingnumber}})</td></h3>
+                  </tr>
+                  <tr>
+                    <th>Application Number</th>
+                    <td>{{data.drivingnumber}}</td>
+                    <th>Learning Licence Number</th>
+                    <td>{{data.learningnumber}}</td>
+                  </tr>
+                  <tr>
+                    <th>Full Name</th>
+                    <td>{{data.register.user.first_name}} {{data.register.user.last_name}}</td>
+                    <th>Email</th>
+                    <td>{{data.register.user.username}}</td>
+                  </tr>
+                  <tr>
+                    <th>Mobile Number</th>
+                    <td>{{data.register.mobile}}</td>
+                    <th>Pic</th>
+                    <td><img src="{{data.image2.url}}" style="width:80px; height:80px"></td>
+                  </tr>
+                  <tr>
+                    <th>Father's Name</th>
+                    <td>{{data.father}}</td>
+                    <th>Date of Birth</th>
+                    <td>{{data.birth}}</td>
+                  </tr>
+                  <tr>
+                    <th>Education Qualification</th>
+                    <td>{{data.qualification}}</td>
+                    <th>Type of Licence</th>
+                    <td>{{data.licencetype}}</td>
+                  </tr>
+                  <tr>
+                    <th>Permanent Address</th>
+                    <td>{{data.peraddress}}</td>
+                    <th>Communication Address</th>
+                    <td>{{data.comaddress}}</td>
+                  </tr>
+                  <tr>
+                    <th>Blood Group</th>
+                    <td>{{data.blood}}</td>
+                    <th>Apply Date</th>
+                    <td>{{data.creationdate}}</td>
+                  </tr>
+                  <tr>
+                    <th>Application Status</th>
+                    <td>{{data.status}}</td>
+                    <th>Application Remark</th>
+                    <td>
+                       {% if data.status == "Not Updated Yet" %}
+                        Wait for rto approval
+                        {% endif %}
+                        {% for i in traking %}
+                        {{i.remark}}
+                        {% endfor %}
+                    </td>
+                  </tr>
+                  <tr>
+                      <th>RTO Action Date</th>
+                      <td>{% for i in traking %}
+                        {{i.time}}
+                        {% endfor %}</td>
+                  </tr>
+                </table>
+                        </div>
+                    </div>
+                        {% if data.status == "Not Updated Yet" %}
+
+                            <center>
+                                <button class="btn btn-primary mt-5" data-target="#exampleModalCenter" data-toggle="modal"
+                                        type="button">
+                                    Take Action
+                                </button>
+                            </center>
+                            {% endif %}
+                            <div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="exampleModalCenter"
+                                 role="dialog" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Take Action</h5>
+                                            <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <form action="" method="post">
+                                                {% csrf_token %}
+                                                <label>Remark:</label>
+                                                <textarea class="form-control" rows="5" name="remark" placeholder="Remark"></textarea>
+
+                                                <label>Choose Status</label>
+                                                <select class="form-control" name="status">
+                                                    <option>Choose you status</option>
+                                                    <option value="Accepted">Accepted</option>
+                                                    <option value="Rejected">Rejected</option>
+                                                </select>
+
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-secondary" data-dismiss="modal" type="clear">
+                                                        Close
+                                                    </button>
+                                                    <button class="btn btn-primary" type="submit">Save changes</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+            </div>
+</div>
+{% endblock %}

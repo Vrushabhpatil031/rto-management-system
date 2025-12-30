@@ -1,0 +1,51 @@
+{% extends 'rto_index.html' %}
+{% load static %}
+{% block body %}
+<div class="row">
+            <div class="col-sm-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Profile Update</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <label class="floating-label">Name</label>
+                                        <input type="text" name="firstname" class="form-control" aria-describedby="emailHelp" value="{{data.user.first_name}}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="floating-label">Name of Nodal Officer</label>
+                                        <input type="text" name="nodalname" class="form-control" aria-describedby="emailHelp" value="{{data.nodalname}}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="floating-label">State Name</label>
+                                        <input type="text" name="state" class="form-control" aria-describedby="emailHelp" value="{{data.state}}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="floating-label">City Name</label>
+                                        <input type="text" name="city" class="form-control" aria-describedby="emailHelp" value="{{data.city}}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="floating-label">Address</label>
+                                        <input type="text" name="address" class="form-control" aria-describedby="emailHelp" value="{{data.address}}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="floating-label">Username</label>
+                                        <input type="text" placeholder="Enter State Name" name="username" class="form-control" aria-describedby="emailHelp" value="{{data.user.username}}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="floating-label">Creation Date</label>
+                                        <input type="text" placeholder="Enter State Name" name="creationdate" class="form-control" aria-describedby="emailHelp" value="{{data.creationdate}}" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn  btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

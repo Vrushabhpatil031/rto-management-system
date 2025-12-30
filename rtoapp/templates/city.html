@@ -1,0 +1,6 @@
+
+<option value="">Select City</option>
+{% for i in city %}
+<option value="{{i.id}}" {% if i.id == rto.city.id %}selected{% endif %}>{{i.cityname}}</option>
+{% endfor %}
+

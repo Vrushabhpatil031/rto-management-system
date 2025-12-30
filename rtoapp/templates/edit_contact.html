@@ -1,0 +1,82 @@
+{% extends 'admin_index.html' %}
+{% load static %}
+{% block body %}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">View Enquiry</h1>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+
+    <section class="content">
+        <div class="container">
+            <div class="card card-default">
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                           <form action="" method="post">
+        {% csrf_token %}
+      <div class="row contact-rooo no-margin">
+        <div class="container">
+           <div class="row">
+
+            <div style="padding:20px" class="col-sm-6">
+            <h2 style="font-size:18px">Contact Form</h2>
+                <div class="row">
+                    <div style="padding-top:10px;" class="col-sm-3"><label>Enter Name :</label></div>
+                    <div class="col-sm-12"><input type="text" placeholder="Enter Name" name="name" class="form-control input-sm" value="{{data.name}}" readonly></div>
+                </div>
+                <div style="margin-top:10px;" class="row">
+                    <div style="padding-top:10px;" class="col-sm-3"><label>Email Address :</label></div>
+                    <div class="col-sm-12"><input type="text" name="email" placeholder="Enter Email Address" class="form-control input-sm" value="{{data.email}}" readonly></div>
+                </div>
+                 <div style="margin-top:10px;" class="row">
+                    <div style="padding-top:10px;" class="col-sm-3"><label>Mobile Number:</label></div>
+                    <div class="col-sm-12"><input type="text" name="mobile" placeholder="Enter Mobile Number" class="form-control input-sm" value="{{data.mobile}}" readonly></div>
+                </div>
+                 <div style="margin-top:10px;" class="row">
+                    <div style="padding-top:10px;" class="col-sm-3"><label>Enter  Message:</label></div>
+                    <div class="col-sm-12">
+                      <textarea rows="5" name="message" placeholder="Enter Your Message" class="form-control input-sm" readonly>{{data.message}}</textarea>
+                    </div>
+                </div>
+                 <div style="margin-top:10px;" class="row">
+                    <div style="padding-top:10px;" class="col-sm-3"><label></label></div>
+
+                </div>
+            </div>
+
+        </div>
+
+      </div>
+      </div>
+   </form>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- /.row -->
+        </div>
+        </br>
+        <!-- /.card-body -->
+        <!-- <div class="card-footer">
+            &copy; Online Cricket Academy Management System.
+        </div> -->
+    </section>
+</div>
+
+
+{% endblock %}
