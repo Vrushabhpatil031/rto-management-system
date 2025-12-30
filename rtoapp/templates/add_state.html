@@ -1,0 +1,27 @@
+{% extends 'admin_index.html' %}
+{% load static %}
+{% block body %}
+<div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>{% if pid %}Update{% else %}Add{% endif %} State</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="floating-label">State Name</label>
+                                        <input type="text" placeholder="Enter State Name" name="name" class="form-control" aria-describedby="emailHelp" value="{{state.name}}" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn  btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

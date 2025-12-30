@@ -1,0 +1,50 @@
+{% extends 'admin_index.html' %}
+{% load static %}
+{% block body %}
+
+<div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Manage RTO</h5>
+                    </div>
+                    <div class="card-body table-border-style">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name of RTO</th>
+                                        <th>Name of Officer</th>
+                                        <th>State Name</th>
+                                        <th>City Name</th>
+                                        <th>Creation Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for i in data %}
+                                    <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{i.user.first_name}}</td>
+                                        <td>{{i.nodalname}}</td>
+                                        <td>{{i.state}}</td>
+                                        <td>{{i.city}}</td>
+                                        <td>{{i.creationdate}}</td>
+                                        <td>
+                                            <a href="{% url 'edit_rto' i.user.id %}">
+                                                <button type="button" class="btn btn-primary"><i class="fa fa-edit"></i> </button>
+                                            </a>
+                                            <a href="{% url 'delete_rto' i.user.id %}" onclick="return confirm('Are you sure?')">
+                                                <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i> </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+<div class="row">
+           <div class="container-fluid py-5 px-5">
+               <h3 align="center"><span>All Driving  Licence</span></h3>
+               <h3 align="center"><span>Request</span></h3>
+                <div class="container pt-5 pb-3">
+                    <div class="card-header">
+                        <h5>Driving Licence Request Status</h5>
+                    </div>
+                    <div class="card-body table-border-style">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Application Number</th>
+                                        <th>Rto Name</th>
+                                        <th>Name</th>
+                                        <th>Mobile Number</th>
+                                        <th>Email</th>
+                                        <th>Aadhaar Card</th>
+                                        <th>Apply Date</th>
+                                        <th>Status</th>
+                                        <th>Aadhaar Card</th> 
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for i in data %}
+                                    <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{i.drivingnumber}}</td>
+                                        <td>{{i.city}}</td>
+                                        <td>{{i.register.user.first_name}}</td>
+                                        <td>{{i.register.mobile}}</td>
+                                        <td>{{i.register.user.username}}</td>
+                                        <td>
+                                            {% if i.aadhaar_card %}
+                                                <a href="{{ i.aadhaar_card.url }}" target="_blank">Download Aadhaar</a> <!-- Download link -->
+                                            {% else %}
+                                                No Aadhaar Card uploaded
+                                            {% endif %}
+                                        </td>
+                                        <td>{{i.creationdate}}</td>
+                                        <td>{{i.status}}</td>
+                                        <td>
+                                            <a href="{% url 'detail2' i.id %}">
+                                                <button type="button" class="btn btn-success">View&nbsp;Details</i> </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+{% endblock %}

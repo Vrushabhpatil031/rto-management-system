@@ -1,0 +1,44 @@
+{% extends 'admin_index.html' %}
+{% load static %}
+{% block body %}
+
+<div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Manage State</h5>
+                    </div>
+                    <div class="card-body table-border-style">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>State Name</th>
+                                        <th>Creation Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for i in data %}
+                                    <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{i.name}}</td>
+                                        <td>{{i.creationdate}}</td>
+                                        <td>
+                                            <a href="{% url 'edit_state' i.id %}">
+                                                <button type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                                            </a>
+                                            <a href="{% url 'delete_state' i.id %}" onclick="return confirm('Are you sure?')">
+                                                <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i> </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}

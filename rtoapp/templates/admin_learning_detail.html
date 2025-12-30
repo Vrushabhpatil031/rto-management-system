@@ -1,0 +1,84 @@
+{% extends 'admin_index.html' %}
+{% load static %}
+{% block body %}
+
+<div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                    <div class="card-header">
+                        <h4>View Learning Licence</h4>
+                    </div>
+                    <div class="card-body table-border-style">
+                        <div class="table-responsive">
+                            <table id="example" class="table table-bordered table-striped">
+                  <tr>
+                   <h3 style="color:blue"><center <th>User Details: </th><center<td>(Learning Licence No: {{data.learningnumber}})</td></h3>
+                  </tr>
+                  <tr>
+                    <th>Application Number</th>
+                    <td>{{data.learningnumber}}</td>
+                    <th>Name</th>
+                    <td>{{data.register.user.first_name}}</td>
+                  </tr>
+                  <tr>
+                    <th>Last Name</th>
+                    <td>{{data.register.user.last_name}}</td>
+                    <th>Email</th>
+                    <td>{{data.register.user.username}}</td>
+                  </tr>
+                  <tr>
+                    <th>Mobile Number</th>
+                    <td>{{data.register.mobile}}</td>
+                    <th>Pic</th>
+                    <td><img src="{{data.image2.url}}" style="width:80px; height:80px"></td>
+                  </tr>
+                  <tr>
+                    <th>Father's Name</th>
+                    <td>{{data.father}}</td>
+                    <th>Date of Birth</th>
+                    <td>{{data.birth}}</td>
+                  </tr>
+                  <tr>
+                    <th>Education Qualification</th>
+                    <td>{{data.qualification}}</td>
+                    <th>Type of Licence</th>
+                    <td>{{data.licencetype}}</td>
+                  </tr>
+                  <tr>
+                    <th>Permanent Address</th>
+                    <td>{{data.peraddress}}</td>
+                    <th>Communication Address</th>
+                    <td>{{data.comaddress}}</td>
+                  </tr>
+                  <tr>
+                    <th>Blood Group</th>
+                    <td>{{data.blood}}</td>
+                    <th>Apply Date</th>
+                    <td>{{data.creationdate}}</td>
+                  </tr>
+                  <tr>
+                    <th>Application Status</th>
+                    <td>{{data.status}}</td>
+                    <th>Application Remark</th>
+                    <td>
+                        {% if data.status == "Not Updated Yet" %}
+                        Wait for rto approval
+                        {% endif %}
+                        {% for i in traking %}
+                        {{i.remark}}
+                        {% endfor %}
+                    </td>
+                    </tr>
+                    <tr>
+                      <th>RTO Action Date</th>
+                      <td>{% for i in traking %}
+                        {{i.time}}
+                        {% endfor %}</td>
+                  </tr>
+                </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+{% endblock %}

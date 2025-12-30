@@ -1,0 +1,44 @@
+{% extends 'admin_index.html' %}
+{% load static %}
+{% block body %}
+
+
+<div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                    <div class="card-header">
+                    <legend style="color:black">Update About</legend>
+                    </div>
+   <form action="" method="post">
+        {% csrf_token %}
+      <div class="row contact-rooo no-margin">
+        <div class="container">
+           <div class="row">
+
+            <div style="padding:20px" class="col-sm-12">
+                <div class="row">
+                    <div style="padding-top:10px;color:black" class="col-sm-3"><label>Page Title</label></div>
+                    <div class="col-sm-12"><input type="text" name="pagetitle" value="{{data.pagetitle}}" class="form-control input-sm" ></div>
+                </div>
+                <div class="form-group">
+                    <div style="padding-top:10px;color:black" ><label>Page Description:</label></div>
+                    <textarea rows="5" class="form-control select2bs4 editor" name="description" placeholder="Write You Description" style="width: 100%;">{{data.description}}</textarea>
+                </div>
+
+                 <div class="col-sm-8">
+                     <button class="btn btn-primary">Update</button>
+                    </div>
+                </div>
+            </div>
+
+         </div>
+
+            </div>
+   </form>
+            </section>
+        </div>
+
+      </div>
+
+               </div>
+{% endblock %}

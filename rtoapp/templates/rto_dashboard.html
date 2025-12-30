@@ -1,0 +1,114 @@
+{% extends 'rto_index.html' %}
+{% load static %}
+{% block body %}
+
+<div class="row">
+            <!-- table card-1 start -->
+            <div class="col-md-12 col-xl-4">
+                <!-- widget primary card start -->
+                <a class="nav-link" href="/learninglist/?action=New">
+                <div class="card flat-card widget-primary-card">
+                    <div class="row-table">
+                        <div class="col-sm-3 card-body">
+                            <i class="feather icon-star-on"></i>
+                        </div>
+                        <div class="col-sm-9">
+                            <h4>{{newl.count}}</h4>
+                            <h6>New LL Application</h6>
+                        </div>
+                    </div>
+                </div>
+                </a>
+                <!-- widget primary card end -->
+            </div>
+            <!-- table card-1 end -->
+            <!-- table card-2 start -->
+            <div class="col-md-12 col-xl-4">
+                <a class="nav-link" href="/learninglist/?action=Accepted">
+                <div class="card flat-card widget-purple-card">
+                    <div class="row-table">
+                        <div class="col-sm-3 card-body">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="col-sm-9">
+                            <h4>{{acceptedl.count}}</h4>
+                            <h6>Accepted LL Application</h6>
+                        </div>
+                    </div>
+                </div>
+                </a>
+                <!-- widget-success-card end -->
+            </div>
+            <div class="col-md-12 col-xl-4">
+                <a class="nav-link" href="/learninglist/?action=Rejected">
+                <div class="card flat-card widget-primary-card">
+                    <div class="row-table">
+                        <div class="col-sm-3 card-body">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="col-sm-9">
+                            <h4>{{rejectedl.count}}</h4>
+                            <h6>Rejected LL Application</h6>
+                        </div>
+                    </div>
+                </div>
+                </a>
+                <!-- widget-success-card end -->
+            </div>
+        </div>
+<div class="row">
+            <!-- table card-1 start -->
+            <div class="col-md-12 col-xl-4">
+                <!-- widget primary card start -->
+                <a class="nav-link" href="/drivinglist/?action=New">
+                <div class="card flat-card widget-purple-card">
+                    <div class="row-table">
+                        <div class="col-sm-3 card-body">
+                            <i class="feather icon-star-on"></i>
+                        </div>
+                        <div class="col-sm-9">
+                            <h4>{{newd.count}}</h4>
+                            <h6>New DL Application</h6>
+                        </div>
+                    </div>
+                </div>
+                </a>
+                <!-- widget primary card end -->
+            </div>
+            <!-- table card-1 end -->
+            <!-- table card-2 start -->
+            <div class="col-md-12 col-xl-4">
+                <a class="nav-link" href="/drivinglist/?action=Accepted">
+                <div class="card flat-card widget-primary-card">
+                    <div class="row-table">
+                        <div class="col-sm-3 card-body">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="col-sm-9">
+                            <h4>{{acceptedd.count}}</h4>
+                            <h6>Accepted DL Application</h6>
+                        </div>
+                    </div>
+                </div>
+                </a>
+                <!-- widget-success-card end -->
+            </div>
+            <div class="col-md-12 col-xl-4">
+                <a class="nav-link" href="/drivinglist/?action=Rejected">
+                <div class="card flat-card widget-purple-card">
+                    <div class="row-table">
+                        <div class="col-sm-3 card-body">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="col-sm-9">
+                            <h4>{{rejectedd.count}}</h4>
+                            <h6>Rejected DL Application</h6>
+                        </div>
+                    </div>
+                </div>
+                </a>
+                <!-- widget-success-card end -->
+            </div>
+        </div>
+
+{% endblock %}
